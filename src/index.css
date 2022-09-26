@@ -9,4 +9,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(89,187,120);
+  background: no-repeat -moz-linear-gradient(8deg, rgba(89,187,120,0.9023984593837535) 0%, rgba(90,34,135,1) 75%);
+  background: no-repeat -webkit-linear-gradient(8deg, rgba(89,187,120,0.9023984593837535) 0%, rgba(90,34,135,1) 75%);
+  background: no-repeat linear-gradient(8deg, rgba(89,187,120,0.9023984593837535) 0%, rgba(90,34,135,1) 75%);
+  height: 100vh;
 }

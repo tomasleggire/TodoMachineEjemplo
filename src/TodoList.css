@@ -1,0 +1,13 @@
+ul {
+    text-align: center;
+    margin-top: 40px;
+    overflow: scroll;
+    background-color: rgba(224, 172, 59, 0.363);
+    max-height: 330px;
+    width: calc(100% - 64px);
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 22px;
+    list-style: none;
+    border-radius: 10px;
+}

@@ -7,7 +7,7 @@ import { TodoItem } from "./TodoItem";
 import { CreateTodoButton } from "./CreateTodoButton";
 
 const todos = [
-  {text: "Cortar cebolla", completed: false},
+  {text: "Cortar cebolla", completed: true},
   {text: "Completar el curso de react", completed: false},
   {text: "Llorar todo el dia", completed: false},
   {text: "Llorar todo el dia de nuevo", completed: false}
