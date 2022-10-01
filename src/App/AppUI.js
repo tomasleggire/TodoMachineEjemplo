@@ -7,6 +7,8 @@ import { TodoItem } from "../TodoItem";
 import { CreateTodoButton } from "../CreateTodoButton";
 
 function AppUI({
+    loading,
+    error,
     totalTodos,
     completedTodos,
     searchValue,
@@ -27,7 +29,11 @@ function AppUI({
         setSearchValue={setSearchValue}
       />
 
-      <TodoList>      
+      <TodoList>
+        {error && <p>Ocurrio un error...</p>}
+        {loading && <p>Estamos cargando...</p>}
+        {(!loading && !searchedTodos.length) && <p>Parece que no hay todos, prueba crear uno!</p>}
+
         {searchedTodos.map(todo => (
           <TodoItem 
             text={todo.text} 
