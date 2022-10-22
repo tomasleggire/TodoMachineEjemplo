@@ -40,22 +40,24 @@ function App() {
         />
       </TodoHeader>
 
-   
-      <TodoList>
-          {error && <p>Ocurrio un error...</p>}
-          {loading && <p>Estamos cargando...</p>}
-          {(!loading && !searchedTodos.length) && <p>Parece que no hay todos, prueba crear uno!</p>}
-  
-          {searchedTodos.map(todo => (
-            <TodoItem 
-              text={todo.text} 
-              key={todo.text} 
-              completed={todo.completed}
-              onComplete={() => completeTodo(todo.text)}
-              onDelete={() => deleteTodo(todo.text)}
-            />
-        ))}     
-      </TodoList>
+
+      <TodoList
+        error={error}
+        loading={loading}
+        searchedTodos={searchedTodos}
+        onError={() => <p>Ocurrio un error...</p>}
+        onLoading={() => <p>Estamos cargando...</p>}
+        onEmptyTodos={() => <p>Parece que no hay todos, prueba crear uno!</p>}
+        render={todo => (
+          <TodoItem 
+            text={todo.text} 
+            key={todo.text} 
+            completed={todo.completed}
+            onComplete={() => completeTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
+          />
+        )}
+      />
        
       {!!openModal && (
         <Modal>
