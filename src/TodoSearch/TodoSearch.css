@@ -17,3 +17,7 @@ input {
   .TodoSearch:focus {
     outline-color: #d1b61f;
   }
+
+  .TodoSearch:disabled {
+    opacity: 0.5;
+  }
