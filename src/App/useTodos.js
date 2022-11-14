@@ -33,7 +33,7 @@ function useTodos() {
       const completeTodo = (text) => {
         const todoIndex = todos.findIndex(todo => todo.text === text);
         const newTodos = [...todos];
-        if (newTodos[todoIndex].completed == true) {
+        if (newTodos[todoIndex].completed === true) {
           newTodos[todoIndex].completed = false
         } else {
           newTodos[todoIndex].completed = true
@@ -57,21 +57,26 @@ function useTodos() {
         saveTodos(newTodos);
       }
 
-    return {
+      const state = {
         error,
         loading,
         totalTodos,
         completedTodos,
         searchValue,
-        setSearchValue,
         searchedTodos,
         completeTodo,
+        openModal,
+      }
+
+      const stateUpdaters = {
+        setSearchValue,
         addTodo,
         deleteTodo,
-        openModal,
         setOpenModal,
         sincronizeTodos,
-    }
+      }
+
+      return {state, stateUpdaters}
 }
 
 export { useTodos };
