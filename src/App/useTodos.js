@@ -64,11 +64,11 @@ function useTodos() {
         completedTodos,
         searchValue,
         searchedTodos,
-        completeTodo,
         openModal,
       }
-
+      
       const stateUpdaters = {
+        completeTodo,
         setSearchValue,
         addTodo,
         deleteTodo,

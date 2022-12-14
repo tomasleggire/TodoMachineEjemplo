@@ -22,11 +22,11 @@ function App() {
     completedTodos,
     searchValue,
     searchedTodos,
-    completeTodo,
     openModal,
   } = state;
-
+  
   const {
+    completeTodo,
     setSearchValue,
     addTodo,
     deleteTodo,
