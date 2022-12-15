@@ -77,6 +77,7 @@ function HomePage() {
             text={todo.text} 
             key={todo.text} 
             completed={todo.completed}
+            onEdit={() => console.log('pene')}
             onComplete={() => completeTodo(todo.text)}
             onDelete={() => deleteTodo(todo.text)}
           />

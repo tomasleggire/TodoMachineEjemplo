@@ -54,3 +54,15 @@
   .Icon-delete:hover {
     color: red;
   }
+
+  .Icon-edit {
+    font-size: 16px;
+    font-family: monospace;
+    position: absolute;
+    right: 30px;
+    top: -8px;
+  }
+
+  .Icon-edit:hover {
+    color: rgb(30, 136, 100);
+  }
