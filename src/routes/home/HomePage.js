@@ -1,17 +1,17 @@
 import React from "react";
-import { TodoCounter } from "../TodoCounter";
-import { TodoSearch } from "../TodoSearch";
-import { TodoList } from "../TodoList";
-import { TodoItem } from "../TodoItem";
-import { CreateTodoButton } from "../CreateTodoButton";
-import { Modal } from '../Modal';
-import {TodoForm} from '../TodoForm';
-import TodoHeader from "../TodoHeader";
-import { useTodos } from "./useTodos";
-import { ChangeAlert } from "../ChangeAlert";
+import { TodoCounter } from "../../ui/TodoCounter";
+import { TodoSearch } from "../../ui/TodoSearch";
+import { TodoList } from "../../ui/TodoList";
+import { TodoItem } from "../../ui/TodoItem";
+import { CreateTodoButton } from "../../ui/CreateTodoButton";
+import { Modal } from '../../ui/Modal';
+import {TodoForm} from '../../ui/TodoForm';
+import TodoHeader from "../../ui/TodoHeader";
+import { useTodos } from "../useTodos";
+import { ChangeAlert } from "../../ui/ChangeAlert";
 
 
-function App() {
+function HomePage() {
 
   const {state, stateUpdaters} = useTodos();
 
@@ -103,4 +103,4 @@ function App() {
     )
 }
 
-export default App;
+export { HomePage };
