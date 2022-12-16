@@ -75,11 +75,11 @@ function HomePage() {
         {todo => (
           <TodoItem 
             text={todo.text} 
-            key={todo.text} 
+            key={todo.id}
             completed={todo.completed}
             onEdit={() => console.log('pene')}
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
+            onComplete={() => completeTodo(todo.id)}
+            onDelete={() => deleteTodo(todo.id)}
           />
         )}
 
