@@ -1,7 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./TodoForm.css";
 
-function TodoForm({addTodo, setOpenModal}) {
+function TodoForm(props) {
+
+    const navigate = useNavigate();
 
     const [newTodoValue, setNewTodoValue] = React.useState("");
 
@@ -10,18 +13,17 @@ function TodoForm({addTodo, setOpenModal}) {
     }
 
     const onCancel = () => {
-        setOpenModal(false);
+        navigate('/');
     };
     const onSumbit = (event) => {
         event.preventDefault();
-        addTodo(newTodoValue);
-        setOpenModal(false);
-
+        navigate('/');
+        props.sumbitEvent(newTodoValue);
     };
 
     return (
         <form onSubmit={onSumbit}>
-            <label>Escribe tu nuevo TODO</label>
+            <label>{props.label}</label>
             <textarea 
               placeholder="Cortar la cebolla para el almuerzo"
               value={newTodoValue}
@@ -36,7 +38,7 @@ function TodoForm({addTodo, setOpenModal}) {
                 <button
                   type="sumbit"
                   className="TodoForm-button TodoForm-button--add"
-                >Añadir</button>
+                >{props.sumbitText}</button>
             </div>
         </form>
     )
