@@ -17,8 +17,8 @@ function TodoForm(props) {
     };
     const onSumbit = (event) => {
         event.preventDefault();
-        navigate('/');
         props.sumbitEvent(newTodoValue);
+        navigate('/');
     };
 
     return (

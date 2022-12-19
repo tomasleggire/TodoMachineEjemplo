@@ -12,8 +12,6 @@ function useTodos() {
       } = useLocalStorage('TODOS_V2', []);
     
       const [searchValue, setSearchValue] = React.useState('');
-
-      const [openModal, setOpenModal] = React.useState(false);
     
       const completedTodos = todos.filter(todo => !!todo.completed).length;
       const totalTodos = todos.length;
@@ -28,7 +26,7 @@ function useTodos() {
           const searchText = searchValue.toLocaleLowerCase();
           return todoText.includes(searchText);
         })
-      }
+      };
     
       const completeTodo = (id) => {
         const todoIndex = todos.findIndex(todo => todo.id === id);
@@ -39,7 +37,14 @@ function useTodos() {
           newTodos[todoIndex].completed = true
         };
         saveTodos(newTodos);
-      }
+      };
+
+      const editTodo = (id, newText) => {
+        const todoIndex = todos.findIndex(todo => todo.id === id);
+        const newTodos = [...todos];
+        newTodos[todoIndex].text = newText;
+        saveTodos(newTodos);
+      };
 
       const addTodo = (text) => {
         const id = newTodoId(todos);
@@ -50,14 +55,14 @@ function useTodos() {
           id,
         })
         saveTodos(newTodos);
-      }
+      };
     
       const deleteTodo = (id) => {
         const todoIndex = todos.findIndex(todo => todo.id === id);
         const newTodos = [...todos];
         newTodos.splice(todoIndex, 1);
         saveTodos(newTodos);
-      }
+      };
 
       const state = {
         error,
@@ -66,17 +71,16 @@ function useTodos() {
         completedTodos,
         searchValue,
         searchedTodos,
-        openModal,
-      }
+      };
       
       const stateUpdaters = {
         completeTodo,
         setSearchValue,
         addTodo,
+        editTodo,
         deleteTodo,
-        setOpenModal,
         sincronizeTodos,
-      }
+      };
 
       return {state, stateUpdaters}
 }
@@ -88,6 +92,6 @@ const newTodoId = (todoList) => {
   const idList = todoList.map(todo => todo.id);
   const newMax = Math.max(...idList);
   return newMax + 1;
-}
+};
 
 export { useTodos };
