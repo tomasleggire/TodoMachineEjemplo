@@ -56,13 +56,19 @@ function useTodos() {
         })
         saveTodos(newTodos);
       };
-    
+
+      const getTodo = (id) => {
+        const todoIndex = todos.findIndex(todo => todo.id === id);
+        return todos[todoIndex];
+      };
+      
       const deleteTodo = (id) => {
         const todoIndex = todos.findIndex(todo => todo.id === id);
         const newTodos = [...todos];
         newTodos.splice(todoIndex, 1);
         saveTodos(newTodos);
       };
+      
 
       const state = {
         error,
@@ -71,6 +77,7 @@ function useTodos() {
         completedTodos,
         searchValue,
         searchedTodos,
+        getTodo,
       };
       
       const stateUpdaters = {
